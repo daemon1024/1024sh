@@ -1,7 +1,5 @@
 const readline = require("readline");
 const process = require("process");
-const { exec } = require("child_process");
-const { exit } = require("process");
 const { spawn } = require("child_process");
 
 const rl = readline.createInterface({
@@ -23,7 +21,7 @@ const loop = (str) => {
     const cmd = spawn(str[0], str.slice(1));
 
     cmd.stdout.on("data", (data) => {
-      console.log(data);
+      console.log(`${data}`);
     });
 
     cmd.stderr.on("data", (data) => {
